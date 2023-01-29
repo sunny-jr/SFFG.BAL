@@ -16,7 +16,7 @@ namespace SFFG.BAL.Models
         public int Id { get; set; }
         public string LessonName { get; set; } = String.Empty!;
         public string? LessonPath { get; set; } = String.Empty!;
-        public IFormFile File { get; set; } = default!;
+        public IFormFile? File { get; set; } = default!;
         public int? SectionId { get; set; }
 
     }
