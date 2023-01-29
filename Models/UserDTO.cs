@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SFFG.DAL.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,5 +17,6 @@ namespace SFFG.BAL.Models
         public string Role { get; set; } = String.Empty!;
         public int? SectionId { get; set; }
         public string? Password { get; set; }
+        public MisSection? Section { get; set; }
     }
 }

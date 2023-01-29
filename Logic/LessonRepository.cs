@@ -19,14 +19,14 @@ namespace SFFG.BAL.Logic
             _lesson = repo;
             _mapper = mapper;
         }
-        public bool AddNewLesson(int secId, LessonDTO lessons)
+        public bool AddNewLesson(LessonDTO lessons)
         {
-            if (secId >= 0 && lessons.Equals(null)) return false;
+            if (lessons.Equals(null)) return false;
 
             var lesson = _mapper.Map<LessonDTO,Lesson>(lessons);
 
   
-            var result = _lesson.CreateLesson(secId, lesson);
+            var result = _lesson.CreateLesson(lesson);
             
             return result;
             //throw new NotImplementedException();

@@ -10,7 +10,7 @@ namespace SFFG.BAL.Interface
 {
     public interface ILessonRepository
     {
-        bool AddNewLesson(int secId, LessonDTO lesson);
+        bool AddNewLesson(LessonDTO lesson);
 
         List<LessonDTO> GetAllLessons(int secId);
 
