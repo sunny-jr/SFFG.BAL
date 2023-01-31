@@ -9,14 +9,14 @@ namespace SFFG.BAL.Interface
 {
     public interface IVideoLessonRepository
     {
-        bool AddNewSection(int secId, VideoLessonsDTO lesson);
+        bool AddNewVideoLesson(VideoLessonsDTO video);
 
-        List<VideoLessonsDTO> GetAllSections(int secId);
+        List<VideoLessonsDTO> GetAllVideo(int secId);
 
-        VideoLessonsDTO? ViewSection(int id);
+        VideoLessonsDTO? ViewVideos(int id);
 
-        bool UpdateSection(int id, VideoLessonsDTO lesson);
+        bool UpdateVideos(int id, VideoLessonsDTO lesson);
 
-        bool DeleteSection(int id);
+        bool DeleteVideo(int id);
     }
 }

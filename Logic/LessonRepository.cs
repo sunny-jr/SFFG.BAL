@@ -42,7 +42,7 @@ namespace SFFG.BAL.Logic
 
         public List<LessonDTO> GetAllLessons(int secId)
         {
-            if (secId >= 0) return new List<LessonDTO>();
+            if (secId > 0) return new List<LessonDTO>();
 
             return _mapper.Map<List<Lesson>,List<LessonDTO>>(_lesson.GetLessons(secId));
             //throw new NotImplementedException();

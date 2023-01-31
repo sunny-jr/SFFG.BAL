@@ -12,50 +12,50 @@ namespace SFFG.BAL.Logic
 {
     public class VideoLessonRepository : IVideoLessonRepository
     {
-        DAL.IRepositories.IVideoLessonRepository _lesson;
+        DAL.IRepositories.IVideoLessonRepository _videoLesson;
         IMapper _mapper;
         public VideoLessonRepository(DAL.IRepositories.IVideoLessonRepository repo, IMapper mapper)
         {
-            _lesson = repo;
+            _videoLesson = repo;
             _mapper = mapper;
         }
 
-        public bool AddNewSection(int secId, VideoLessonsDTO lesson)
+        public bool AddNewVideoLesson(VideoLessonsDTO video)
         {
-            if (secId >= 0 && lesson.Equals(null)) return false;
+            if (video.Equals(null)) return false;
 
-            var convertDTO = _mapper.Map<VideoLessonsDTO, VideoLesson>(lesson);
-            var result = _lesson.CreateVideoLesson(secId, convertDTO);
+            var convertDTO = _mapper.Map<VideoLessonsDTO, VideoLesson>(video);
+            var result = _videoLesson.CreateVideoLesson(convertDTO);
             return result;
         }
 
-        public bool DeleteSection(int id)
+        public bool DeleteVideo(int id)
         {
             if (id > 0) return false;
 
-            return _lesson.DeleteVideoLesson(id);
+            return _videoLesson.DeleteVideoLesson(id);
         }
 
-        public List<VideoLessonsDTO> GetAllSections(int secId)
+        public List<VideoLessonsDTO> GetAllVideo(int secId)
         {
             if (secId >= 0) return new List<VideoLessonsDTO>();
 
-            return _mapper.Map<List<VideoLesson>, List<VideoLessonsDTO>>(_lesson.GetVideoLessons(secId));
+            return _mapper.Map<List<VideoLesson>, List<VideoLessonsDTO>>(_videoLesson.GetVideoLessons(secId));
         }
 
-        public bool UpdateSection(int id, VideoLessonsDTO lesson)
+        public bool UpdateVideos(int id, VideoLessonsDTO lesson)
         {
             if (id > 0 && lesson is null) return false;
 
             var convertDTO = _mapper.Map<VideoLessonsDTO, VideoLesson>(lesson);
-            return _lesson.UpdateVideoLesson(id, convertDTO);
+            return _videoLesson.UpdateVideoLesson(id, convertDTO);
         }
 
-        public VideoLessonsDTO? ViewSection(int id)
+        public VideoLessonsDTO? ViewVideos(int id)
         {
             if (id > 0) return null;
 
-            var lesson = _lesson.ViewVideoLesson(id);
+            var lesson = _videoLesson.ViewVideoLesson(id);
             if (lesson is null) return null;
 
             return _mapper.Map<VideoLesson, VideoLessonsDTO>(lesson);
