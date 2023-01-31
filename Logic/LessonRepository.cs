@@ -34,7 +34,7 @@ namespace SFFG.BAL.Logic
 
         public bool DeleteLesson(int id)
         {
-            if (id > 0) return false;
+            if (id < 0) return false;
 
             return _lesson.DeleteLesson(id);
 
